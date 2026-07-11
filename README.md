@@ -4,7 +4,7 @@ Creates PNG plots for joint confidence regions from five different approaches us
 
 # Usage
 
-1. Download the folder (Click the green button `Code` on the upper part of this page and select `Download ZIP`) then unzip.
+1. Download the folder (Click the green button `Code` on the upper part of this page and select `Download ZIP`) then unzip/extract.
    <img width="878" height="407" alt="image" src="https://github.com/user-attachments/assets/ca76b77f-043f-43fe-a46f-c69cbcfe2105" />
 
 2. Double click the `.Rproj` file (highlighted in the below image) to open it in RStudio.  
