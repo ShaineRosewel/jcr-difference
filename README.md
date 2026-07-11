@@ -10,7 +10,7 @@ Creates PNG plots for joint confidence regions from five different approaches us
 2. Double click the `.Rproj` file (highlighted in the below image) to open it in RStudio.  
    <img width="332" height="232" alt="image" src="https://github.com/user-attachments/assets/ccad58ad-ddb8-4c8e-a198-581ad7822cfd" />
 
-3. In the R Console, run `renv::restore()`. Type Y then press Enter to agree when asked. Wait for installs to get done.
+3. In the R Console, run `renv::restore()`. Type Y then press Enter to agree when asked. Wait for updates and installs to get done.
    <img width="991" height="692" alt="image" src="https://github.com/user-attachments/assets/61762b01-7b22-42d5-92e5-1cbffdfd6906" />
  
 4. Store your updated csv file to plot in the `data` folder. The code expects only the format and filename of the sample csv file found in the `data` folder. Note that I changed the filename's version number to use three digits (`v005` instead of `v5`); please adjust accordingly. In case of curiosity, I used `mean_travel_time_ranking_2011.rds` in `data` folder mainly for the `ISO`.
