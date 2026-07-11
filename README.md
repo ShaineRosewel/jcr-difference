@@ -22,5 +22,5 @@ Creates PNG plots for joint confidence regions from five different approaches us
 
 # Notes
 
-- If values are not yet ready for some of the approaches, please leave them blank but keep the labels, similar to what's shown in the sample file. This is because the row numbers are hard-coded.
+- If values are not yet ready for some of the approaches, please leave them blank but keep the labels, similar to what's shown in the sample csv file. This is because the row numbers are hard-coded.
 - The `main.R` may be tweaked in a way that you prefer.
