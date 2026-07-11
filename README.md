@@ -1,8 +1,8 @@
-# What this does
+# About
 
 Creates PNG plots for joint confidence regions from five different approaches using the csv file in the `data` folder and outputs them in `plot_outputs` folder.
 
-# How to use
+# Usage
 
 1. Download the folder (Click the green button `Code` and select `Download ZIP`) then unzip.
    <img width="878" height="407" alt="image" src="https://github.com/user-attachments/assets/ca76b77f-043f-43fe-a46f-c69cbcfe2105" />
