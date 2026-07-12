@@ -1,0 +1,54 @@
+name: Run R Script on Windows
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-r-script:
+    runs-on: windows-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.4.1'
+
+    - name: Set up renv cache
+      uses: actions/cache@v4
+      with:
+        path: ~\AppData\Local\renv
+        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
+
+    - name: Restore R packages
+      run: |
+        Rscript -e "renv::restore()"
+
+    - name: Run Main Script and Rename Outputs
+      shell: powershell
+      run: |
+        # Run the core R script
+        Rscript main.R
+        
+        # Define the version suffix
+        $R_VER = "4.4.1"
+        
+        # Safely rename the output files if they exist
+        if (Test-Path "plot_outputs/*.png") {
+            Get-ChildItem plot_outputs/*.png | ForEach-Object {
+                $newName = "$($_.BaseName)_R_$($R_VER)$($_.Extension)"
+                Rename-Item $_.FullName -NewName $newName
+            }
+        }
+
+    - name: Upload Plot Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: r-plot-outputs
+        path: plot_outputs/
