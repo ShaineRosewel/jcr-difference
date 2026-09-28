@@ -1,4 +1,4 @@
-your_csv <- "Plots needed for Ranking Project Data applications v005.csv"
+your_csv <- "Plots needed for Ranking Project Data applications v006.csv"
 
 library(ggplot2)
 library(dplyr)
@@ -15,10 +15,11 @@ mean_travel_time_ranking_2011 <- readRDS(
   paste0(wd, "/data/mean_travel_time_ranking_2011.rds"))
 
 raw <- raw[5:nrow(raw),]
-raw <- raw[-c(4, 8, 12, 16, 20:nrow(raw)), ]
+# raw <- raw[-c(4, 8, 12, 16, 20:nrow(raw)), ]
+raw <- raw[-c(4, 8, 12, 16), ]
 
-raw[raw == "| A_rk+ |"] <- "ARKPLUS"
-raw[raw == "| A_rk0 |"] <- "ARKZERO"
+raw[raw == "| A_k+ |"] <- "ARKPLUS"
+raw[raw == "| A_k0 |"] <- "ARKZERO"
 
 raw[raw == "| A_Rk |"] <- "ARKPLUS"
 raw[raw == "| A_0k |"] <- "ARKZERO"
@@ -49,7 +50,7 @@ rownames(bounds_clean) <- NULL
 
 mean_travel_time_ranking_2011 <- mean_travel_time_ranking_2011 %>% 
   arrange(theta_k_COPIED)
-mean_travel_time_ranking_2011$rhat_k <- 1:51 # overwrite ranks
+# mean_travel_time_ranking_2011$rhat_k <- 1:51 # overwrite ranks
 mean_travel_time_ranking_2011 <- mean_travel_time_ranking_2011 %>% arrange(k)
 
 
@@ -68,6 +69,7 @@ build_plot <- function(APP){
   
   dataset <- dataset %>% arrange(desc(theta_k))
   # dataset$order_index <- seq(K, 1, -1)
+  
   
   to_string_seq <- function(x, y){paste(seq(x, y, 1), collapse=',')}
   
